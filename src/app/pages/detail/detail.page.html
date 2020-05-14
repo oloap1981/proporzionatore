@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-margin-top" color="primary">
+    <ion-buttons routerLink="/home" slot="start">
+      <ion-icon class="ion-margin" size="large" color="dark" name="chevron-back-outline" mode="md"></ion-icon>
+    </ion-buttons>
+    <ion-title color="dark">
+      Order detail
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon class="ion-margin" size="medium" color="dark" name="ellipsis-vertical" mode="md"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container">
+    <h1>Pappas Bros</h1>
+    <p class="ion-no-margin">Spanish food / Scherzan meat</p>
+    <ion-img src="/assets/img/palillos.png"></ion-img>
+    <div class="ion-text-center">
+      <ion-chip class="white">
+        <ion-label>Small</ion-label>
+      </ion-chip>
+      <ion-chip class="black">
+        <ion-label>Medium</ion-label>
+      </ion-chip>
+      <ion-chip class="white">
+        <ion-label>Big</ion-label>
+      </ion-chip>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <div class="details">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p class="title">NOW</p>
+          <p class="price"> $7.60</p>
+        </ion-col>
+        <ion-col>
+          <p class="title">BEFORE</p>
+          <p class="price before"> $10.60</p>
+        </ion-col>
+        <ion-col>
+          <ion-chip routerLink="/home" class="yellow">
+            <ion-label color="dark">Buy</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

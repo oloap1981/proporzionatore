@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-margin-top" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">
+      {{pageName}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let ricetta of listaRicette">
+      <div>{{ricetta.nomeRicetta}}</div>
+      <ion-button (click)="chiediCancellazioneRicetta(ricetta)">X</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

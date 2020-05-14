@@ -1,0 +1,74 @@
+//Montserrat Style Font
+$font-family-md-base: "Gotham", sans-serif !important;
+$font-family-ios-base: "Gotham", sans-serif !important;
+$font-family-wp-base: "Gotham", sans-serif !important;
+$font-family-base: "Gotham", sans-serif !important;
+
+
+body,
+h1,
+h2,
+h3,
+p,
+button,
+ion-title,
+ion-label
+{
+  font-family: "Gotham", sans-serif !important;
+}
+
+h1 {
+  color: var(--ion-color-dark);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h2 {
+  color: var(--ion-color-dark);
+  font-weight: bold;
+  font-size: 23px;
+}
+
+h3 {
+  color: var(--ion-color-dark);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 15px;
+  color: #B4B4B4;
+  font-weight: 300;
+  font-weight: normal;
+}
+
+a {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 300;
+  color: var(--ion-color-primary);
+  text-decoration: none !important;
+}
+
+@font-face {
+  font-family: "Gotham", sans-serif;
+  font-style: bold;
+  font-weight: bold;
+  src: url("/assets/fonts/gotham/GothamBold.ttf");
+}
+
+@font-face {
+  font-family: "Gotham", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/gotham/GothamMedium.ttf");
+}
+
+
+@font-face {
+  font-family: "Gotham", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/gotham/GothamMedium.ttf");
+}

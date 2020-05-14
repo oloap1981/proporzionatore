@@ -1,0 +1,54 @@
+ion-content {
+  --padding-end: 24px;
+  --padding-start: 24px;
+  --overflow: hidden;
+  --background: var(--ion-color-primary);
+}
+
+ion-header{
+  background: var(--ion-color-primary);
+}
+
+
+ion-slide {
+  height: 70vh;
+  flex-direction: column;
+}
+
+ion-slides {
+  background: white;
+  border-radius: 35px;
+}
+
+ion-img {
+  max-width: 70vw;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+ion-skeleton-text {
+  --background: white;
+}
+
+ion-chip.yellow {
+  --background: var(--ion-color-primary);
+  color: black;
+  font-weight: bold;
+  padding: 16px 30px 16px 30px;
+}
+
+ion-chip.black {
+  --background: #000000;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+ion-chip.white {
+  --background: #ffffff;
+  color: black;
+  font-weight: normal;
+}
+
+ion-thumbnail {
+  --border-radius: 10px;	
+}

@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-margin-top" color="primary">
+    <ion-buttons slot="start">
+      <ion-icon class="ion-margin" size="large" color="dark" name="menu-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title color="dark">
+      Food items
+    </ion-title>
+    <ion-thumbnail class="ion-margin" slot="end">
+      <img src="/assets/img/user.jpg">
+    </ion-thumbnail>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" scrollX=false>
+
+  <div class="ion-text-center">
+    <ion-chip class="white">
+      <ion-label>Mughlai</ion-label>
+    </ion-chip>
+    <ion-chip class="black">
+      <ion-label>Chinese</ion-label>
+    </ion-chip>
+    <ion-chip class="white">
+      <ion-label>Italian</ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-slides class="ion-margin" #introSlides [options]="sliderConfig" (ionSlideDidChange)="slideDidChange()">
+    <ion-slide *ngFor="let slide of slides">
+      <h1 class="ion-padding-end ion-padding-start">{{slide.title}}</h1>
+      <p class="ion-no-margin">{{slide.type}}</p>
+      <ion-skeleton-text *ngIf="!imgLoaded" animated style="width: 100%; height: 200px" slot="start">
+      </ion-skeleton-text>
+      <ion-img src="{{slide.image}}" (ionImgWillLoad)="imgLoaded=false" (ionImgDidLoad)="imgLoaded=true"></ion-img>
+      <h2 class="ion-no-padding ion-no-margin">{{slide.price}}</h2>
+
+      <ion-chip routerLink="/detail" class="yellow ion-margin-top">
+        <ion-label color="dark">Buy</ion-label>
+      </ion-chip>
+
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>
