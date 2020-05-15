@@ -42,7 +42,13 @@ export class StoreService {
     public removeRicetta(ricetta: Ricetta) {
         this.getListaRicettePromise().then((val) => {
             const listaRicette = val as Array<Ricetta>;
-            var index = listaRicette.indexOf(ricetta);
+            var index = 0;
+            for (const ric of listaRicette) {
+                if (ric.nomeRicetta === ricetta.nomeRicetta) {
+                    break;
+                }
+                index++;
+            }
             listaRicette.splice(index, 1);
             this.storage.set('ricette', listaRicette);
             this.deleteSubject.next(true);

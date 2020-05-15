@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BaseComponent } from 'src/app/components/base/base.component';
 import { AlertController } from '@ionic/angular';
 import { Ricetta } from 'src/app/models/ricetta';
+import { takeUntil } from 'rxjs/operators';
 
 import { StoreService } from 'src/app/services/store.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-elenco-ricette',
   templateUrl: './elenco-ricette.page.html',
   styleUrls: ['./elenco-ricette.page.scss'],
 })
-export class ElencoRicettePage extends BaseComponent implements OnInit {
+export class ElencoRicettePage extends BaseComponent implements OnInit, OnDestroy {
+
+  private unsubscribe$ = new Subject<void>();
 
   public listaRicette: Array<Ricetta>;
 
@@ -22,15 +26,20 @@ export class ElencoRicettePage extends BaseComponent implements OnInit {
     this.listaRicette = new Array<Ricetta>();
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.loadRicette();
-    this.storeService.deleteObservable.subscribe(r => {
+    this.storeService.deleteObservable.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(r => {
       if(r) {
         this.presentAlert('ricetta cancellata correttamente');
         this.listaRicette = new Array<Ricetta>();
         this.loadRicette();
       }
     });
+  }
+
+  ngOnInit() {
   }
 
   public loadRicette() {
@@ -64,6 +73,14 @@ export class ElencoRicettePage extends BaseComponent implements OnInit {
 
   public selezionaRicetta(ricetta: Ricetta) {
 
+  }
+
+  ngOnDestroy() {
+  }
+
+  ionViewDidLeave() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }
