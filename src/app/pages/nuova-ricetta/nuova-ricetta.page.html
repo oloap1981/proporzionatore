@@ -17,7 +17,8 @@
   <div class="container" [ngClass]="{'first-ing' : coefficienteProporzione === 0}">
     <ion-list>
         <ion-item class="ion-no-padding">
-            <ion-label position="stacked">Ingrediente</ion-label>
+            <ion-label position="stacked" *ngIf="coefficienteProporzione == 0">Ingrediente di riferimento</ion-label>
+            <ion-label position="stacked" *ngIf="coefficienteProporzione !== 0">Ingrediente </ion-label>
             <ion-input required type="text" [(ngModel)]="nomeIngrediente" placeholder="es: farina"></ion-input>
         </ion-item>
         <ion-item class="ion-no-padding" >
