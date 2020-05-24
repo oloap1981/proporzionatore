@@ -1,6 +1,9 @@
 ion-content {
-  --padding-end: 24px;
-  --padding-start: 24px;
+  
+  --padding-top: 40px;
+  
+  --padding-end: 0px;
+  --padding-start: 0px;
   --overflow: hidden;
   --background: var(--ion-color-primary);
 }
@@ -51,4 +54,8 @@ ion-chip.white {
 
 ion-thumbnail {
   --border-radius: 10px;	
+}
+
+.main-menu {
+
 }

@@ -1,46 +1,63 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar class="ion-margin-top" color="primary">
+  <ion-toolbar class="" color="primary">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button  size="large" color="dark" name="menu-outline"></ion-back-button>
     </ion-buttons>
     <ion-title color="dark">
-      {{pageName}}
+       {{pageName}}
     </ion-title>
+    <ion-thumbnail class="ion-margin" slot="end">
+      <img src="/assets/img/user.jpg">
+    </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" scrollX=false>
+<ion-content class="ion-padding" scrollX=false  color="primary">
 
-
-
-  <ion-item>
-    <ion-label position="stacked">Ingrediente</ion-label>
-    <ion-input required type="text" [(ngModel)]="nomeIngrediente"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="stacked">Quantità originale<ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required type="text" (change)="digitaOriginale($event)" [(ngModel)]="quantitaOriginale"></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label position="floating">Quantita proporzionata</ion-label>
-    <ion-input [(ngModel)]="quantitaProporzionata" [disabled]="coefficienteProporzione !== 0"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-button (click)="aggiungiIngrediente()" color="success" class="ion-color ion-color-success ios button button-solid ion-activatable ion-focusable hydrated ion-activated">+</ion-button>
-  </ion-item>
-
-  <ion-item>
+  <div class="container" [ngClass]="{'first-ing' : coefficienteProporzione === 0}">
     <ion-list>
-      <ion-item *ngFor="let ing of listaIngredienti">
-        {{ing.nome}},{{ing.quantitaOriginale}},{{ing.quantitaProporzionata | number: '1.1-1'}}
-      </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="stacked">Ingrediente</ion-label>
+            <ion-input required type="text" [(ngModel)]="nomeIngrediente" placeholder="es: farina"></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding" >
+            <ion-label position="stacked">Quantità originale<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required type="text" (change)="digitaOriginale($event)" [(ngModel)]="quantitaOriginale"></ion-input>
+        </ion-item>
+        
+        <ion-item class="ion-no-padding" lines="none">
+            <ion-label position="floating">Quantita proporzionata</ion-label>
+            <ion-input [(ngModel)]="quantitaProporzionata" [disabled]="coefficienteProporzione !== 0"></ion-input>
+        </ion-item>
+            <ion-button (click)="aggiungiIngrediente()" color="light" class="ion-color ion-color-success ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated">+ aggiungi ingrediente</ion-button>
+      
     </ion-list>
-  </ion-item>
+    <ion-grid class="ion-no-padding">
+        <div  *ngFor="let ing of listaIngredienti" class="ingrediente">
+            <ion-row>
+                <ion-col class="nome-ingrediente">
+                    <p class="title" style="padding-bottom: 0; margin-bottom: 0;"><b>{{ing.nome}}</b></p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <p class="title">originale</p>
+                    <p class="price before">{{ing.quantitaOriginale}}</p>
+                </ion-col>
+                <ion-col>
+                    <p class="title">proporzionata</p>
+                    <p class="price before">{{ing.quantitaProporzionata | number: '1.1-1'}}</p>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
 
-  <ion-item>
-    <ion-button (click)="chiediSalvataggio()" color="success" class="ion-color ion-color-success ios button button-solid ion-activatable ion-focusable hydrated ion-activated">SALVA</ion-button>
-  </ion-item>
+</div>
 
 </ion-content>
+
+<ion-footer class="ion-no-border" >
+  <div class="details">
+    <ion-button (click)="chiediSalvataggio()" color="dark" class="ion-color ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated">SALVA</ion-button>
+  </div>
+</ion-footer>
