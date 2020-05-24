@@ -74,4 +74,75 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** clean **/
+   --ion-color-clean: #a7d2cb;
+  --ion-color-clean-rgb: 167,210,203;
+  --ion-color-clean-contrast: #000000;
+  --ion-color-clean-contrast-rgb: 0,0,0;
+  --ion-color-clean-shade: #93b9b3;
+  --ion-color-clean-tint: #b0d7d0;
+
+  /** butter **/
+  --ion-color-butter: #f2d388;
+  --ion-color-butter-rgb: 242,211,136;
+  --ion-color-butter-contrast: #000000;
+  --ion-color-butter-contrast-rgb: 0,0,0;
+  --ion-color-butter-shade: #d5ba78;
+  --ion-color-butter-tint: #f3d794;
+
+  /** salmon **/
+   --ion-color-salmon: #c98474;
+  --ion-color-salmon-rgb: 201,132,116;
+  --ion-color-salmon-contrast: #000000;
+  --ion-color-salmon-contrast-rgb: 0,0,0;
+  --ion-color-salmon-shade: #b17466;
+  --ion-color-salmon-tint: #ce9082;
+
+  /** eggplant **/
+   --ion-color-eggplant: #874c62;
+  --ion-color-eggplant-rgb: 135,76,98;
+  --ion-color-eggplant-contrast: #ffffff;
+  --ion-color-eggplant-contrast-rgb: 255,255,255;
+  --ion-color-eggplant-shade: #774356;
+  --ion-color-eggplant-tint: #935e72;
 }
+
+
+
+.ion-color-clean {
+  --ion-color-base: var(--ion-color-clean);
+  --ion-color-base-rgb: var(--ion-color-clean-rgb);
+  --ion-color-contrast: var(--ion-color-clean-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-clean-contrast-rgb);
+  --ion-color-shade: var(--ion-color-clean-shade);
+  --ion-color-tint: var(--ion-color-clean-tint);
+}
+
+.ion-color-butter {
+  --ion-color-base: var(--ion-color-butter);
+  --ion-color-base-rgb: var(--ion-color-butter-rgb);
+  --ion-color-contrast: var(--ion-color-butter-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-butter-contrast-rgb);
+  --ion-color-shade: var(--ion-color-butter-shade);
+  --ion-color-tint: var(--ion-color-butter-tint);
+}
+
+.ion-color-salmon {
+  --ion-color-base: var(--ion-color-salmon);
+  --ion-color-base-rgb: var(--ion-color-salmon-rgb);
+  --ion-color-contrast: var(--ion-color-salmon-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-salmon-contrast-rgb);
+  --ion-color-shade: var(--ion-color-salmon-shade);
+  --ion-color-tint: var(--ion-color-salmon-tint);
+}
+
+.ion-color-eggplant {
+  --ion-color-base: var(--ion-color-eggplant);
+  --ion-color-base-rgb: var(--ion-color-eggplant-rgb);
+  --ion-color-contrast: var(--ion-color-eggplant-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-eggplant-contrast-rgb);
+  --ion-color-shade: var(--ion-color-eggplant-shade);
+  --ion-color-tint: var(--ion-color-eggplant-tint);
+}
+
