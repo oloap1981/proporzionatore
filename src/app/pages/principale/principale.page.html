@@ -1,22 +1,43 @@
+
+
 <ion-header class="ion-no-border">
-  <ion-toolbar class="ion-margin-top" color="primary">
-    
+  <ion-toolbar class="" color="primary">
+    <ion-buttons slot="start">
+      <ion-icon class="ion-margin" size="large" color="dark" name="menu-outline"></ion-icon>
+    </ion-buttons>
     <ion-title color="dark">
-      {{pageName}}
+       {{pageName}}
     </ion-title>
+    <ion-thumbnail class="ion-margin" slot="end">
+      <img src="/assets/img/user.jpg">
+    </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" scrollX=false>
+<ion-content class="" scrollX=false>
 
-  <div class="ion-text-center">
-    <ion-button routerLink="/nuova-ricetta" color="success" class="ion-color ion-color-success ios button button-solid ion-activatable ion-focusable hydrated ion-activated">Nuova</ion-button>
-  </div>
-  <div class="ion-text-center">
-    <ion-button routerLink="/elenco-ricette" color="success" class="ion-color ion-color-success ios button button-solid ion-activatable ion-focusable hydrated ion-activated">Elenco</ion-button>
-  </div>
-  <div class="ion-text-center">
-    <ion-button routerLink="/info" color="success" class="ion-color ion-color-success ios button button-solid ion-activatable ion-focusable hydrated ion-activated">Info</ion-button>
-  </div>
+<ion-list  class="ion-text-center ion-no-border main-menu" style="background-color: transparent">
+    <ion-item routerLink="/nuova-ricetta"  color="dark" padding>
+        NUOVO
+    </ion-item>
+    <ion-item routerLink="/elenco-ricette" color="dark" padding>
+        ELENCO
+    </ion-item>
+    <ion-item routerLink="/info" color="dark" padding>
+        INFO
+    </ion-item>
+</ion-list>
+<!--<div class="ion-text-center">
+    <ion-chip routerLink="/nuova-ricetta"  class="white">
+        <ion-label>Nuova</ion-label>
+    </ion-chip>
+    <ion-chip  routerLink="/elenco-ricette" class="white">
+        <ion-label>Elenco</ion-label>
+    </ion-chip>
+    <ion-chip routerLink="/info" class="white">
+        <ion-label>Info</ion-label>
+    </ion-chip>
+</div>-->
+
 
 </ion-content>
