@@ -6,9 +6,9 @@
     <ion-title color="dark">
        {{pageName}}
     </ion-title>
-    <ion-thumbnail class="ion-margin" slot="end">
+    <!-- <ion-thumbnail class="ion-margin" slot="end">
       <img src="/assets/img/user.jpg">
-    </ion-thumbnail>
+    </ion-thumbnail> -->
   </ion-toolbar>
 </ion-header>
 
@@ -25,16 +25,16 @@
                 <ion-select-option value="gr">gr</ion-select-option>
                 <ion-select-option value="ml">ml</ion-select-option>
                 <ion-select-option value="cm">cm</ion-select-option>
-                <ion-select-option value=""></ion-select-option>
+                <ion-select-option value="">vuoto</ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item class="ion-no-padding" >
-            <ion-label position="stacked"><b>Quantità originale</b><ion-text color="danger">*</ion-text></ion-label>
+            <ion-label position="stacked"><b>{{umIngrediente == 'cm' ? 'Dimensione' : 'Quantità'}} originale</b><ion-text color="danger">*</ion-text></ion-label>
             <ion-input required type="text" (change)="digitaOriginale($event)" [(ngModel)]="quantitaOriginale"></ion-input>
         </ion-item>
         
         <ion-item class="ion-no-padding" lines="none">
-            <ion-label position="floating"><b>Quantita proporzionata</b></ion-label>
+            <ion-label position="floating"><b>{{umIngrediente == 'cm' ? 'Dimensione' : 'Quantità'}} proporzionata</b></ion-label>
             <ion-input [(ngModel)]="quantitaProporzionata" [disabled]="coefficienteProporzione !== 0"></ion-input>
         </ion-item>
             <ion-button (click)="aggiungiIngrediente()" color="light" class="ion-color ion-color-success ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated"><b>+ aggiungi ingrediente</b></ion-button>
@@ -50,7 +50,7 @@
             <ion-row>
                 <ion-col>
                     <p class="title">originale</p>
-                    <p class="price before">{{ing.quantitaOriginale}}{{ing.um}}</p>
+                    <p class="price before">{{ing.quantitaOriginale}} {{ing.um}}</p>
                 </ion-col>
                 <ion-col>
                     <p class="title">proporzionata</p>
@@ -60,7 +60,7 @@
         </div>
     </ion-grid>
 
-</div>
+  </div>
 
 </ion-content>
 
