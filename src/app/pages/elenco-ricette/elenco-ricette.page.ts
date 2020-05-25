@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { StoreService } from 'src/app/services/store.service';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-elenco-ricette',
@@ -19,7 +20,8 @@ export class ElencoRicettePage extends BaseComponent implements OnInit, OnDestro
   public listaRicette: Array<Ricetta>;
 
   constructor(public alertCtrl: AlertController,
-    public storeService: StoreService) { 
+    public storeService: StoreService,
+    public router: Router) { 
 
     super(alertCtrl);
     this.pageName = 'Elenco Ricette';
@@ -33,7 +35,6 @@ export class ElencoRicettePage extends BaseComponent implements OnInit, OnDestro
     ).subscribe(r => {
       if(r) {
         this.presentAlert('ricetta cancellata correttamente');
-        this.listaRicette = new Array<Ricetta>();
         this.loadRicette();
       }
     });
@@ -72,7 +73,7 @@ export class ElencoRicettePage extends BaseComponent implements OnInit, OnDestro
   }
 
   public selezionaRicetta(ricetta: Ricetta) {
-
+    this.router.navigate(['/dettaglio-ricetta'], { queryParams: { ricetta: JSON.stringify(ricetta) } });
   }
 
   ngOnDestroy() {

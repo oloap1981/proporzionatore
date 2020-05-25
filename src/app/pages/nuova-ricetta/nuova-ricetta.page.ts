@@ -9,6 +9,7 @@ import { StoreService } from 'src/app/services/store.service';
 
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuova-ricetta',
@@ -22,6 +23,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   public coefficienteProporzione: number;
 
   public nomeIngrediente: string;
+  public umIngrediente: string;
   public quantitaOriginale: number;
   public quantitaProporzionata: number;
 
@@ -31,7 +33,8 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
 
   constructor(
     public alertCtrl: AlertController,
-    public storeService: StoreService) {
+    public storeService: StoreService,
+    private router: Router) {
 
     super(alertCtrl);
     this.pulisciForm();
@@ -48,6 +51,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
       if (r) {
         this.presentAlert('Ricetta salvata correttamente');
         this.pulisciPagina();
+        this.router.navigate(['/elenco-ricette']);
       }
     });
   }
@@ -85,7 +89,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
     ingrediente.nome = this.nomeIngrediente;
     ingrediente.quantitaOriginale = this.quantitaOriginale;
     ingrediente.quantitaProporzionata = this.quantitaProporzionata;
-
+    ingrediente.um = this.umIngrediente;
     this.listaIngredienti.push(ingrediente);
 
     this.pulisciForm();
