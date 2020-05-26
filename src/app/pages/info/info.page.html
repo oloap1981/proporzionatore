@@ -6,12 +6,38 @@
     <ion-title color="dark">
        {{pageName}}
     </ion-title>
-    <ion-thumbnail class="ion-margin" slot="end">
+    <!-- <ion-thumbnail class="ion-margin" slot="end">
       <img src="/assets/img/user.jpg">
-    </ion-thumbnail>
+    </ion-thumbnail> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="container" [ngClass]="{'first-ing' : coefficienteProporzione === 0}">
+    
+    <ion-text>
+      <p>Benvenuti!</p>
 
+      <p>questa è una breve guida su come utilizzare questo strumenti di utilità quotidiana</p>
+
+      <p><b>NUOVA RICETTA</b></p>
+      <p>permette di creare una nuova ricetta con quantità automaticamente proporzionate partendo da una ricetta esistente. Supponiamo di avere una ricetta presa da un libro di cucina, o da Internet. Quella ricetta avrà quantità per 4 persone per esempio, oppure per una teglia rotonda di 25cm di diametro. 
+      Con questo strumento sarà possibile avere le corrette quantità per il numero di persone che volete o per la teglia della dimensione che avete voi.
+      Si parte inserendo il primo elemento che è quello di riferimento. <br/><br/>
+
+      Es. <br/>
+      <i>Teglia<br/>
+      dimensione della ricetta originale 27cm<br/>
+      dimensione della teglia che avete 32cm</i></p>
+
+      <p>Da adesso in poi dovrete solo inserire gli ingredienti con le quantità della ricetta originale, le proporzioni usciranno automaticamente!</p>
+
+      <p>Quando avete finito salvate la ricetta, datele un nome, scrivete eventuali note e il gioco è fatto! La vostra ricetta con le quantità proporzionate sarà salvata e sempre disponibile sulla app nell’ELENCO RICETTE.</p>
+
+      <p><b>ELENCO RICETTE</b></p>
+      <p>permette di vedere l’elenco delle ricette che avete salvato. Cliccando sul pulsante sulla destra di ogni ricetta sarà anche possibile eliminare quella ricetta dall’elenco.
+      Se invece si clicca sul nome della ricetta si viene portati sulla pagina che mostra il dettaglio della ricetta, l’elenco degli ingredienti con le quantità proporzionate e le eventuali note.</p>
+    </ion-text>
+
+  </div>
 </ion-content>

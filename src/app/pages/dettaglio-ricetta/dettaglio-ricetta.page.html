@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button  size="large" color="dark" name="menu-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">
+       {{ricetta.nomeRicetta}}
+    </ion-title>
+    <!-- <ion-thumbnail class="ion-margin" slot="end">
+      <img src="/assets/img/user.jpg">
+    </ion-thumbnail> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" scrollX=false  color="primary">
+  <div class="container">
+    <ion-grid class="ion-no-padding">
+        <div  *ngFor="let ing of ricetta.listaIngredienti" class="ingrediente">
+            <ion-row>
+                <ion-col class="nome-ingrediente">
+                    <p class="title" style="padding-bottom: 0; margin-bottom: 0;"><b>{{ing.nome}}</b></p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <p class="price before">{{ing.quantitaProporzionata | number: '1.1-1'}} {{ing.um}}</p>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+    <ion-item>
+      <ion-label>Note:</ion-label>
+      <ion-row>
+        <ion-col>
+            <p>{{ricetta.noteRicetta}}</p>
+        </ion-col>
+      </ion-row>
+      
+    </ion-item>
+  </div>
+
+</ion-content>
+

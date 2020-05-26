@@ -6,9 +6,9 @@
     <ion-title color="dark">
        {{pageName}}
     </ion-title>
-    <ion-thumbnail class="ion-margin" slot="end">
+    <!-- <ion-thumbnail class="ion-margin" slot="end">
       <img src="/assets/img/user.jpg">
-    </ion-thumbnail>
+    </ion-thumbnail> -->
   </ion-toolbar>
 </ion-header>
 
@@ -16,13 +16,16 @@
 
   <div class="container" >
 
-    <ion-list>
+    <ion-list *ngIf="listaRicette.length > 0">
         <ion-item *ngFor="let ricetta of listaRicette" class="ion-no-padding">
-            <div>{{ricetta.nomeRicetta}}</div>
+            <div (click)="selezionaRicetta(ricetta)">{{ricetta.nomeRicetta}}</div>
             <ion-button slot="end" color="eggplant" (click)="chiediCancellazioneRicetta(ricetta)">X</ion-button>
         </ion-item>
+        
     </ion-list>
-
-    </div>
+    <ion-item class="ion-no-padding" *ngIf="listaRicette.length == 0">
+      <div>Non ci sono ricette salvate</div>
+    </ion-item>
+  </div>
 
 </ion-content>

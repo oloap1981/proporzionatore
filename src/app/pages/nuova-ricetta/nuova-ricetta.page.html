@@ -6,9 +6,9 @@
     <ion-title color="dark">
        {{pageName}}
     </ion-title>
-    <ion-thumbnail class="ion-margin" slot="end">
+    <!-- <ion-thumbnail class="ion-margin" slot="end">
       <img src="/assets/img/user.jpg">
-    </ion-thumbnail>
+    </ion-thumbnail> -->
   </ion-toolbar>
 </ion-header>
 
@@ -17,20 +17,27 @@
   <div class="container" [ngClass]="{'first-ing' : coefficienteProporzione === 0}">
     <ion-list>
         <ion-item class="ion-no-padding">
-            <ion-label position="stacked" *ngIf="coefficienteProporzione == 0">Ingrediente di riferimento</ion-label>
-            <ion-label position="stacked" *ngIf="coefficienteProporzione !== 0">Ingrediente </ion-label>
+            <ion-label position="stacked" *ngIf="coefficienteProporzione == 0"><b>Ingrediente di riferimento</b></ion-label>
+            <ion-label position="stacked" *ngIf="coefficienteProporzione !== 0"><b>Ingrediente</b> </ion-label>
             <ion-input required type="text" [(ngModel)]="nomeIngrediente" placeholder="es: farina"></ion-input>
+            <ion-label position="stacked"><b>Unita di misura</b></ion-label>
+            <ion-select required type="" [(ngModel)]="umIngrediente" interface="popover">
+                <ion-select-option value="gr">gr</ion-select-option>
+                <ion-select-option value="ml">ml</ion-select-option>
+                <ion-select-option value="cm">cm</ion-select-option>
+                <ion-select-option value="">vuoto</ion-select-option>
+            </ion-select>
         </ion-item>
         <ion-item class="ion-no-padding" >
-            <ion-label position="stacked">Quantità originale<ion-text color="danger">*</ion-text></ion-label>
+            <ion-label position="stacked"><b>{{umIngrediente == 'cm' ? 'Dimensione' : 'Quantità'}} originale</b><ion-text color="danger">*</ion-text></ion-label>
             <ion-input required type="text" (change)="digitaOriginale($event)" [(ngModel)]="quantitaOriginale"></ion-input>
         </ion-item>
         
         <ion-item class="ion-no-padding" lines="none">
-            <ion-label position="floating">Quantita proporzionata</ion-label>
+            <ion-label position="floating"><b>{{umIngrediente == 'cm' ? 'Dimensione' : 'Quantità'}} proporzionata</b></ion-label>
             <ion-input [(ngModel)]="quantitaProporzionata" [disabled]="coefficienteProporzione !== 0"></ion-input>
         </ion-item>
-            <ion-button (click)="aggiungiIngrediente()" color="light" class="ion-color ion-color-success ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated">+ aggiungi ingrediente</ion-button>
+            <ion-button (click)="aggiungiIngrediente()" color="light" class="ion-color ion-color-success ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated"><b>+ aggiungi ingrediente</b></ion-button>
       
     </ion-list>
     <ion-grid class="ion-no-padding">
@@ -43,17 +50,17 @@
             <ion-row>
                 <ion-col>
                     <p class="title">originale</p>
-                    <p class="price before">{{ing.quantitaOriginale}}</p>
+                    <p class="price before">{{ing.quantitaOriginale}} {{ing.um}}</p>
                 </ion-col>
                 <ion-col>
                     <p class="title">proporzionata</p>
-                    <p class="price before">{{ing.quantitaProporzionata | number: '1.1-1'}}</p>
+                    <p class="price before">{{ing.quantitaProporzionata | number: '1.1-1'}} {{ing.um}}</p>
                 </ion-col>
             </ion-row>
         </div>
     </ion-grid>
 
-</div>
+  </div>
 
 </ion-content>
 

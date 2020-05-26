@@ -9,6 +9,7 @@ import { StoreService } from 'src/app/services/store.service';
 
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuova-ricetta',
@@ -22,6 +23,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   public coefficienteProporzione: number;
 
   public nomeIngrediente: string;
+  public umIngrediente: string;
   public quantitaOriginale: number;
   public quantitaProporzionata: number;
 
@@ -29,8 +31,10 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
 
   public ricetta: Ricetta;
 
-  constructor(public alertCtrl: AlertController,
-    public storeService: StoreService) { 
+  constructor(
+    public alertCtrl: AlertController,
+    public storeService: StoreService,
+    private router: Router) {
 
     super(alertCtrl);
     this.pulisciForm();
@@ -47,6 +51,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
       if (r) {
         this.presentAlert('Ricetta salvata correttamente');
         this.pulisciPagina();
+        this.router.navigate(['/elenco-ricette']);
       }
     });
   }
@@ -69,22 +74,22 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   public digitaOriginale(event) {
     console.log(event);
     if (this.coefficienteProporzione > 0) {
-      var quantitaProporzionataTemp = this.quantitaOriginale * this.coefficienteProporzione;//(Math.round(num * 100) / 100).toFixed(2)
+      const quantitaProporzionataTemp = this.quantitaOriginale * this.coefficienteProporzione; // (Math.round(num * 100) / 100).toFixed(2)
       this.quantitaProporzionata = parseFloat((Math.round(quantitaProporzionataTemp * 100) / 100).toFixed(1));
     }
   }
 
   public aggiungiIngrediente() {
 
-    if(this.listaIngredienti.length === 0){
+    if (this.listaIngredienti.length === 0) {
       this.coefficienteProporzione = this.quantitaProporzionata / this.quantitaOriginale;
     }
 
-    var ingrediente = new Ingrediente();
+    const ingrediente = new Ingrediente();
     ingrediente.nome = this.nomeIngrediente;
     ingrediente.quantitaOriginale = this.quantitaOriginale;
     ingrediente.quantitaProporzionata = this.quantitaProporzionata;
-
+    ingrediente.um = this.umIngrediente;
     this.listaIngredienti.push(ingrediente);
 
     this.pulisciForm();
@@ -96,7 +101,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   }
 
   public async chiediSalvataggio() {
-    let alert = await this.alertCtrl.create({
+    const alert = await this.alertCtrl.create({
       header: 'Salvataggio',
       inputs: [
         {
@@ -130,7 +135,6 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   }
 
   ngOnDestroy() {
-    
   }
 
   ionViewDidLeave() {

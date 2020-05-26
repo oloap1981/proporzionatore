@@ -50,8 +50,10 @@ export class StoreService {
                 index++;
             }
             listaRicette.splice(index, 1);
-            this.storage.set('ricette', listaRicette);
-            this.deleteSubject.next(true);
+            this.storage.set('ricette', listaRicette).then(() => {
+                this.deleteSubject.next(true);
+            });
+            
         });
     }
 
