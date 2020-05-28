@@ -15,10 +15,10 @@ export class StoreService {
     public deleteObservable = this.deleteSubject.asObservable();
 
     public clearUserData(): void {
-        this.storage.clear(); 
+        this.storage.clear();
     }
 
-    public setData(ricetta: Ricetta): void { 
+    public setData(ricetta: Ricetta): void {
         this.getListaRicettePromise().then((val) => {
             const listaRicette = val as Array<Ricetta>;
             listaRicette.push(ricetta);
@@ -27,22 +27,22 @@ export class StoreService {
         });
     }
 
-    public getListaRicettePromise() { 
-        return new Promise(resolve => { // store service prima inizializzaione 
+    public getListaRicettePromise() {
+        return new Promise(resolve => { // store service prima inizializzaione
             this.storage.get('ricette').then((val: any) => { // recuperato dato dal database
-                if (val != null) { 
-                    resolve(val); 
+                if (val != null) {
+                    resolve(val);
                 } else { // devo andare alla pagina del login
                     resolve(new Array<Ricetta>());
-                } 
-            }); 
-        }); 
+                }
+            });
+        });
     }
 
     public removeRicetta(ricetta: Ricetta) {
         this.getListaRicettePromise().then((val) => {
             const listaRicette = val as Array<Ricetta>;
-            var index = 0;
+            let index = 0;
             for (const ric of listaRicette) {
                 if (ric.nomeRicetta === ricetta.nomeRicetta) {
                     break;
@@ -53,7 +53,6 @@ export class StoreService {
             this.storage.set('ricette', listaRicette).then(() => {
                 this.deleteSubject.next(true);
             });
-            
         });
     }
 

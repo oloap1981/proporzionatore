@@ -81,7 +81,21 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
 
   public aggiungiIngrediente() {
 
+    if (this.nomeIngrediente === '') {
+      this.presentAlert('Specificare nome ingrediente');
+      return;
+    }
+
+    if (this.quantitaOriginale === 0) {
+      this.presentAlert('Specificare quantità originale');
+      return;
+    }
+
     if (this.listaIngredienti.length === 0) {
+      if (this.quantitaProporzionata === 0) {
+        this.presentAlert('Specificare quantità proporzionata');
+        return;
+      }
       this.coefficienteProporzione = this.quantitaProporzionata / this.quantitaOriginale;
     }
 
