@@ -10,6 +10,7 @@ import { StoreService } from 'src/app/services/store.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 @Component({
   selector: 'app-nuova-ricetta',
@@ -31,10 +32,13 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
 
   public ricetta: Ricetta;
 
+  public isKeyboardHide = true;
+
   constructor(
     public alertCtrl: AlertController,
     public storeService: StoreService,
-    private router: Router) {
+    private router: Router,
+    public keyboard: Keyboard) {
 
     super(alertCtrl);
     this.pulisciForm();
@@ -45,6 +49,15 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   }
 
   ionViewDidEnter() {
+    this.keyboard.onKeyboardWillShow().subscribe(()=>{
+      this.isKeyboardHide=false;
+      // console.log('SHOWK');
+    });
+    this.keyboard.onKeyboardWillHide().subscribe(()=>{
+      this.isKeyboardHide=true;
+      // console.log('HIDEK');
+    });
+    
     this.storeService.saveObservable.pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(r => {

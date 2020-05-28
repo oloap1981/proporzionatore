@@ -10,9 +10,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/Storage';
 import { StoreService } from './services/store.service';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { BaseComponent } from './components/base/base.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    BaseComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -24,7 +29,8 @@ import { StoreService } from './services/store.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    StoreService
+    StoreService,
+    Keyboard
   ],
   bootstrap: [AppComponent]
 })

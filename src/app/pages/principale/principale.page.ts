@@ -12,7 +12,7 @@ export class PrincipalePage extends BaseComponent{
 
   constructor(public alertCtrl: AlertController) { 
     super(alertCtrl);
-    this.pageName = 'Ricette e Proporzioni';
+    this.pageName = 'Proporzione!';
   }
 
   ngOnInit() {
