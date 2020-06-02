@@ -14,8 +14,9 @@ ion-content {
 .main-menu {
    background: transparent;
    backdrop-filter: blur(5px);
+   text-shadow: 1px 1px 0px #000;
+   font-weight: 800;
 }
-
 
 ion-item {
     opacity: .65;
