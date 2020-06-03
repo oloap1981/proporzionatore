@@ -23,21 +23,24 @@
             </ion-row>
             <ion-row>
                 <ion-col>
+                    <p class="title">originale</p>
+                    <p class="price before">{{ing.quantitaOriginale}} {{ing.um}}</p>
+                </ion-col>
+                <ion-col>
+                    <p class="title">proporzionata</p>
                     <p class="price before">{{ing.quantitaProporzionata | number: '1.1-1'}} {{ing.um}}</p>
                 </ion-col>
             </ion-row>
+            
         </div>
+        <ion-row>
+            <ion-col>
+                <p class="title" style="padding-bottom: 0; margin-bottom: 0;">Nota</p>
+                <p class="price before">{{ricetta.noteRicetta}}</p>
+            </ion-col>
+        </ion-row>
     </ion-grid>
-    <ion-item>
-      <ion-label>Note:</ion-label>
-      <ion-row>
-        <ion-col>
-            <p>{{ricetta.noteRicetta}}</p>
-        </ion-col>
-      </ion-row>
-      
-    </ion-item>
+    
   </div>
 
 </ion-content>
-

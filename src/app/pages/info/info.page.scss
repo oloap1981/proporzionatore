@@ -1,0 +1,32 @@
+.info {
+    p {
+        color: #666 !important;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            position: relative;
+            &:before {
+                content: '';
+                border-left: solid 10px var(--ion-color-primary);
+                border-top: solid 10px transparent;
+                border-bottom: solid 10px transparent;
+                border-right: solid 10px transparent; 
+                display: block;
+                height: 0;
+                width: 0;
+                position: absolute;
+                left: -20px;
+            }
+            h3 {
+               /* padding: 5px 10px;
+                background: var(--ion-color-primary);
+                box-shadow: inset 0 0 10px rgba(0,0,0,.1);
+                border-radius: 5px;*/
+                color: #333 !important;
+            }
+        }
+    }
+}

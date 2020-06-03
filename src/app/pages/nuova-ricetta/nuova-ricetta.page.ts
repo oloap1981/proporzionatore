@@ -3,7 +3,6 @@ import { BaseComponent } from 'src/app/components/base/base.component';
 import { Ingrediente } from 'src/app/models/ingrediente';
 import { AlertController } from '@ionic/angular';
 
-import { Storage } from '@ionic/storage';
 import { Ricetta } from 'src/app/models/ricetta';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -49,15 +48,15 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
   }
 
   ionViewDidEnter() {
-    this.keyboard.onKeyboardWillShow().subscribe(()=>{
-      this.isKeyboardHide=false;
+    this.keyboard.onKeyboardWillShow().subscribe(() => {
+      this.isKeyboardHide = false;
       // console.log('SHOWK');
     });
-    this.keyboard.onKeyboardWillHide().subscribe(()=>{
-      this.isKeyboardHide=true;
+    this.keyboard.onKeyboardWillHide().subscribe(() => {
+      this.isKeyboardHide = true;
       // console.log('HIDEK');
     });
-    
+
     this.storeService.saveObservable.pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(r => {

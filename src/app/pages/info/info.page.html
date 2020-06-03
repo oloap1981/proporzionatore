@@ -1,44 +1,76 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="" color="primary">
     <ion-buttons slot="start">
-      <ion-back-button  size="large" color="dark" name="menu-outline"></ion-back-button>
+      <ion-back-button
+        size="large"
+        color="dark"
+        name="menu-outline"
+      ></ion-back-button>
     </ion-buttons>
     <ion-title color="dark">
-       {{pageName}}
+      {{pageName}}
     </ion-title>
     <ion-thumbnail class="ion-margin" slot="end">
-      <img src="/assets/img/bilancia.png">
+      <img src="/assets/img/bilancia.png" />
     </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" scrollX=false  color="primary">
-
+<ion-content class="ion-padding" scrollX="false" color="primary">
   <div class="container">
+    <ion-text class="info">
+      <h2>Benvenuti!</h2>
+      <p>
+        questa è una breve guida su come utilizzare questo strumenti di utilità
+        quotidiana
+      </p>
+      <ul>
+        <li>
+ <h3>NUOVA RICETTA</h3>
+      <p>
+        permette di creare una nuova ricetta con quantità automaticamente
+        proporzionate partendo da una ricetta esistente. Supponiamo di avere una
+        ricetta presa da un libro di cucina, o da Internet. Quella ricetta avrà
+        quantità per 4 persone per esempio, oppure per una teglia rotonda di
+        25cm di diametro. Con questo strumento sarà possibile avere le corrette
+        quantità per il numero di persone che volete o per la teglia della
+        dimensione che avete voi. Si parte inserendo il primo elemento che è
+        quello di riferimento.
+      </p>
+      <p>
+        Es. <br />
+        <i
+          >Teglia<br />
+          dimensione della ricetta originale 27cm<br />
+          dimensione della teglia che avete 32cm</i
+        >
+      </p>
+      <p>
+        Da adesso in poi dovrete solo inserire gli ingredienti con le quantità
+        della ricetta originale, le proporzioni usciranno automaticamente!
+      </p>
+      <p>
+        Quando avete finito salvate la ricetta, datele un nome, scrivete
+        eventuali note e il gioco è fatto! La vostra ricetta con le quantità
+        proporzionate sarà salvata e sempre disponibile sulla app nell’ELENCO
+        RICETTE.
+      </p>
 
-    <ion-text>
-      <p>Benvenuti!</p>
-
-      <p>questa è una breve guida su come utilizzare questo strumenti di utilità quotidiana</p>
-
-      <h3><b>NUOVA RICETTA</b></h3>
-      <p>permette di creare una nuova ricetta con quantità automaticamente proporzionate partendo da una ricetta esistente. Supponiamo di avere una ricetta presa da un libro di cucina, o da Internet. Quella ricetta avrà quantità per 4 persone per esempio, oppure per una teglia rotonda di 25cm di diametro. 
-      Con questo strumento sarà possibile avere le corrette quantità per il numero di persone che volete o per la teglia della dimensione che avete voi.
-      Si parte inserendo il primo elemento che è quello di riferimento. <br/><br/>
-
-      Es. <br/>
-      <i>Teglia<br/>
-      dimensione della ricetta originale 27cm<br/>
-      dimensione della teglia che avete 32cm</i></p>
-
-      <p>Da adesso in poi dovrete solo inserire gli ingredienti con le quantità della ricetta originale, le proporzioni usciranno automaticamente!</p>
-
-      <p>Quando avete finito salvate la ricetta, datele un nome, scrivete eventuali note e il gioco è fatto! La vostra ricetta con le quantità proporzionate sarà salvata e sempre disponibile sulla app nell’ELENCO RICETTE.</p>
-
-      <p><b>ELENCO RICETTE</b></p>
-      <p>permette di vedere l’elenco delle ricette che avete salvato. Cliccando sul pulsante sulla destra di ogni ricetta sarà anche possibile eliminare quella ricetta dall’elenco.
-      Se invece si clicca sul nome della ricetta si viene portati sulla pagina che mostra il dettaglio della ricetta, l’elenco degli ingredienti con le quantità proporzionate e le eventuali note.</p>
+        </li>
+        <li>
+            <h3>ELENCO RICETTE</h3>
+      <p>
+        permette di vedere l’elenco delle ricette che avete salvato. Cliccando
+        sul pulsante sulla destra di ogni ricetta sarà anche possibile eliminare
+        quella ricetta dall’elenco. Se invece si clicca sul nome della ricetta
+        si viene portati sulla pagina che mostra il dettaglio della ricetta,
+        l’elenco degli ingredienti con le quantità proporzionate e le eventuali
+        note.
+      </p>
+        </li>
+      </ul>
+     
+      
     </ion-text>
-
   </div>
 </ion-content>
