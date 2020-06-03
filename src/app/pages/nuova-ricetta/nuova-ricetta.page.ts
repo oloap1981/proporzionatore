@@ -93,6 +93,8 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
 
   public aggiungiIngrediente() {
 
+    let isRiferimento = false;
+
     if (this.nomeIngrediente === '') {
       this.presentAlert('Specificare nome ingrediente');
       return;
@@ -109,6 +111,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
         return;
       }
       this.coefficienteProporzione = this.quantitaProporzionata / this.quantitaOriginale;
+      isRiferimento = true;
     }
 
     const ingrediente = new Ingrediente();
@@ -116,6 +119,7 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
     ingrediente.quantitaOriginale = this.quantitaOriginale;
     ingrediente.quantitaProporzionata = this.quantitaProporzionata;
     ingrediente.um = this.umIngrediente;
+    ingrediente.riferimento = isRiferimento;
     this.listaIngredienti.push(ingrediente);
 
     this.pulisciForm();

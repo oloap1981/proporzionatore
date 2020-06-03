@@ -22,8 +22,9 @@ export class StoreService {
         this.getListaRicettePromise().then((val) => {
             const listaRicette = val as Array<Ricetta>;
             listaRicette.push(ricetta);
-            this.storage.set('ricette', listaRicette);
-            this.saveSubject.next(true);
+            this.storage.set('ricette', listaRicette).then(() => {
+                this.saveSubject.next(true);
+            });
         });
     }
 

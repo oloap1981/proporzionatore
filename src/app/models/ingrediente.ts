@@ -3,4 +3,5 @@ export class Ingrediente {
     public um: string;
     public quantitaOriginale: number;
     public quantitaProporzionata: number;
+    public riferimento: boolean;
 }

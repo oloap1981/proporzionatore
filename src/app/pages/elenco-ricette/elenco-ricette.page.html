@@ -18,12 +18,14 @@
 
     <ion-list *ngIf="listaRicette.length > 0" class="ricette-list">
         <ion-item *ngFor="let ricetta of listaRicette" class="ion-no-padding ion-no-margin ion-margin-bottom"  lines="none">
-            <div (click)="selezionaRicetta(ricetta)" class="nome">{{ricetta.nomeRicetta}}</div>
-            <ion-button slot="end" color="light" class="ion-no-margin" (click)="chiediCancellazioneRicetta(ricetta)">
-                <ion-icon name="close-outline"></ion-icon>
-            </ion-button>
-          
-        </ion-item>
+          <div (click)="selezionaRicetta(ricetta)" class="nome">{{ricetta.nomeRicetta}}</div>
+          <ion-button slot="end" color="light" class="ion-no-margin" (click)="chiediCancellazioneRicetta(ricetta)">
+              <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+          <ion-button slot="end" color="light" class="ion-no-margin" (click)="chiediRiproporzionaRicetta(ricetta)">
+            <ion-icon name="copy-outline"></ion-icon>
+          </ion-button>
+      </ion-item>
         
     </ion-list>
     <ion-item class="ion-no-padding" *ngIf="listaRicette.length == 0">
