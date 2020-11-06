@@ -72,6 +72,10 @@ export class NuovaRicettaPage extends BaseComponent implements OnInit, OnDestroy
 
   }
 
+  public gotoHome() {
+    this.router.navigate(['/principale']);
+  }
+
   public pulisciForm() {
     this.nomeIngrediente = '';
     this.quantitaOriginale = 0;

@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="" color="primary">
     <ion-buttons slot="start">
-      <ion-back-button  size="large" color="dark" name="menu-outline"></ion-back-button>
+      <ion-back-button size="large" color="dark" name="menu-outline" defaultHref="principale"></ion-back-button>
     </ion-buttons>
     <ion-title color="dark">
        {{pageName}}
@@ -15,6 +15,9 @@
 <ion-content class="ion-padding" scrollX=false  color="primary">
 
   <div class="container" [ngClass]="{'first-ing' : coefficienteProporzione === 0}">
+    <ion-text color="secondary">
+      <h5>Bene, adesso scegli uno degli elementi della tua ricetta e riproporzionato in base alla sua unità di misura. Tutti gli altri ingredienti della tua ricetta saranno così automaticamente ricalcolati!</h5>
+    </ion-text>
     <ion-list>
         <ion-item class="ion-no-padding">
             <ion-label position="stacked" *ngIf="coefficienteProporzione == 0"><b>Elemento di riferimento</b></ion-label>
@@ -27,7 +30,7 @@
                 <ion-select-option value="gr">gr</ion-select-option>
                 <ion-select-option value="ml">ml</ion-select-option>
                 <ion-select-option value="cm">cm</ion-select-option>
-                <ion-select-option value="">vuoto</ion-select-option>
+                <ion-select-option value=""></ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item class="ion-no-padding" >
@@ -37,10 +40,10 @@
         
         <ion-item class="ion-no-padding" lines="none">
             <ion-label position="floating"><b>{{umIngrediente == 'cm' ? 'Dimensione' : 'Quantità'}} proporzionata</b></ion-label>
-            <ion-input [(ngModel)]="quantitaProporzionata" [disabled]="coefficienteProporzione !== 0" (click)="$event.target.select()"></ion-input>
+            <ion-input type="text" [(ngModel)]="quantitaProporzionata" [disabled]="coefficienteProporzione !== 0" (click)="$event.target.select()"></ion-input>
         </ion-item>
     </ion-list>
-    <ion-button (click)="aggiungiIngrediente()" color="light" class="ion-color ion-color-success ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated"><b>+ aggiungi</b></ion-button>
+    <ion-button (click)="aggiungiIngrediente()" color="light" class="ion-color ion-color-success ios button button-solid button-block ion-activatable ion-focusable hydrated ion-activated"><b>+ Aggiungi Ingrediente</b></ion-button>
     <ion-grid class="ion-no-padding">
         <div  *ngFor="let ing of listaIngredienti" class="ingrediente">
             <ion-row>
@@ -51,7 +54,7 @@
             <ion-row>
                 <ion-col>
                     <p class="title">originale</p>
-                    <p class="price before">{{ing.quantitaOriginale}} {{ing.um}}</p>
+                    <p class="price before">{{ing.quantitaOriginale | number: '1.1-1'}} {{ing.um}}</p>
                 </ion-col>
                 <ion-col>
                     <p class="title">proporzionata</p>
